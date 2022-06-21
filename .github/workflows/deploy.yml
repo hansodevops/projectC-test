@@ -81,13 +81,13 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: task-definition.json
-          container-name: Nginx
+          container-name: nginx
           image: 916101753061.dkr.ecr.ap-southeast-1.amazonaws.com/projc-repo-app-nginx:latest
 
       - name: Deploy Amazon ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.web-task-def.outputs.task-definition }}
-          service: proj-c-api-service
-          cluster: proj-c-api-cluster
+          service: service
+          cluster: proj-api-cluster
           wait-for-service-stability: true
