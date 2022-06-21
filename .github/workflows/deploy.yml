@@ -50,7 +50,7 @@ jobs:
           IMAGE_TAG: latest
         run: |
           docker build -t projc-repo-app .
-          docker tag 	projc-repo-app:latest $ECR_REGISTRY/larvel-app:$IMAGE_TAG
+          docker tag 	projc-repo-app:latest $ECR_REGISTRY/projc-repo-app:$IMAGE_TAG
           docker push $ECR_REGISTRY/projc-repo-app:$IMAGE_TAG
 
       - name: Build Nginx
@@ -61,7 +61,7 @@ jobs:
           IMAGE_TAG: latest
         run: |
           docker build -f Dockerfile_Nginx -t projc-repo-app-nginx .
-          docker tag 	projc-repo-app-nginx:latest $ECR_REGISTRY/larvel-app:$IMAGE_TAG
+          docker tag 	projc-repo-app-nginx:latest $ECR_REGISTRY/projc-repo-app-nginx:$IMAGE_TAG
           docker push $ECR_REGISTRY/projc-repo-app-nginx:$IMAGE_TAG
 
       # Runs a single command using the runners shell
